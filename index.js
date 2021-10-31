@@ -18,6 +18,7 @@ async function run(){
     await client.connect();
     const database = client.db('Tour-Spot');
     const tourscollection = database.collection('tours');
+    const oderscollection = database.collection('oders');
    
     //Get Api 
    app.get('/tours',async(req,res)=>{
@@ -25,6 +26,14 @@ async function run(){
     const cursor = tourscollection.find({});
     const tours= await cursor.toArray();
     res.send(tours);
+   });
+
+   //Get Order Api
+   app.get('/orders',async(req,res)=>{
+    
+    const cursor = oderscollection.find({});
+    const order= await cursor.toArray();
+    res.send(order);
    });
 
    //Get signle service
@@ -35,7 +44,7 @@ async function run(){
    res.json(tour);
 
 
-   })
+   });
    
     //Post Api
     app.post('/tours',async(req,res)=>{
@@ -43,7 +52,24 @@ async function run(){
       const result=await tourscollection.insertOne(tour);
       res.json(result);
 
-    })
+    });
+
+    //Post orders
+    app.post('/orders',async(req,res)=>{
+      const order=req.body;
+      const result=await oderscollection.insertOne(order);
+      res.json(result);
+
+    });
+
+    //Delete Api
+    app.delete("/deleteorder/:id", async (req, res) => {
+      const result = await oderscollection.deleteOne({
+        _id: ObjectId(req.params.id),
+      });
+      res.send(result);
+    });
+   
 
   }
 
