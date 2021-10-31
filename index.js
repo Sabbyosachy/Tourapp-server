@@ -20,7 +20,7 @@ async function run(){
     const tourscollection = database.collection('tours');
     const oderscollection = database.collection('oders');
    
-    //Get Api 
+    //Get Api for topurs
    app.get('/tours',async(req,res)=>{
     
     const cursor = tourscollection.find({});
@@ -46,7 +46,7 @@ async function run(){
 
    });
    
-    //Post Api
+    //Post Api for tours
     app.post('/tours',async(req,res)=>{
       const tour=req.body;
       const result=await tourscollection.insertOne(tour);
