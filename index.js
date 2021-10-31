@@ -25,7 +25,7 @@ async function run(){
     
     const cursor = tourscollection.find({});
     const tours= await cursor.toArray();
-    res.send(tours);
+    res.json(tours);
    });
 
    //Get Order Api
