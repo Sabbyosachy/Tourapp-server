@@ -22,7 +22,6 @@ async function run(){
    
     //Get Api for topurs
    app.get('/tours',async(req,res)=>{
-    
     const cursor = tourscollection.find({});
     const tours= await cursor.toArray();
     res.json(tours);
@@ -33,7 +32,7 @@ async function run(){
     
     const cursor = oderscollection.find({});
     const order= await cursor.toArray();
-    res.send(order);
+    res.json(order);
    });
 
    //Get signle service
