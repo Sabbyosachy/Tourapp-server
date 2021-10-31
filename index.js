@@ -62,7 +62,7 @@ async function run(){
 
     });
 
-    //Delete Api
+    //Delete Ap
     app.delete("/deleteorder/:id", async (req, res) => {
       const result = await oderscollection.deleteOne({
         _id: ObjectId(req.params.id),
