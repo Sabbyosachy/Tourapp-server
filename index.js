@@ -84,6 +84,9 @@ run().catch(console.dir);
 app.get('/', (req, res) => {
   res.send('Welcome To Take A Tour!')
 })
+app.get('/hello', (req, res) => {
+  res.send('hello!')
+})
 
 
 app.listen(port, () => {
