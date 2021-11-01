@@ -31,8 +31,8 @@ async function run(){
    app.get('/orders',async(req,res)=>{
     
     const cursor = oderscollection.find({});
-    const order= await cursor.toArray();
-    res.json(order);
+    const orders= await cursor.toArray();
+    res.json(orders);
    });
 
    //Get signle service
